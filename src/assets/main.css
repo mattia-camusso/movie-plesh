@@ -1,35 +1,221 @@
-@import './base.css';
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+:root {
+  --font-sans: "Poppins", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --cubic-bezier: cubic-bezier(0.8, 0.12, 0.05, 0.88);
+  --color-1: #f1f2f6;
+  --color-1-transparent: #f1f2f6b4;
+  --color-1-transparenter: #f1f2f623;
+  --color-2: #182825;
+  --color-2-transparent: #1828257c;
+  --color-2-transparent-not: #182825b2;
+  --color-3: #f5d3d3;
+  --color-4: #af1b3f;
+  --color-5: #93c0a4;
+  --color-5: #8b8b8b;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+* {
+  scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
+@layer base {
   body {
-    display: flex;
-    place-items: center;
-  }
+    @apply font-sans text-base;
+    font-weight: 400;
+    background-color: var(--color-1);
+    color: var(--color-2);
+    scrollbar-width: thin;
+    line-height: normal;
+    scrollbar-base-color: var(--color-3);
+    scrollbar-color: var(--color-4) transparent;
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+}
+
+.text-style-1 {
+  font-size: clamp(1.5rem, 2.2vw, 3rem);
+}
+
+.text-style-2 {
+  font-size: clamp(0.7rem, 1vw, 3rem);
+}
+
+.text-style-3 {
+  font-size: clamp(1rem, 1.4vw, 3.2rem);
+}
+
+.text-style-4 {
+  font-size: clamp(1rem, 2vw, 3.4rem);
+}
+
+.text-style-big {
+  font-size: clamp(1.9rem, 4.5vw, 5rem);
+}
+
+.text-style-bigger {
+  font-size: clamp(3rem, 7vw, 7vw);
+}
+
+.text-serif-1 {
+  @apply text-style-1;
+  font-family: var(--font-serif);
+}
+
+.text-serif-2 {
+  @apply text-style-2;
+  font-family: var(--font-serif);
+}
+
+.text-serif-3 {
+  @apply text-style-3;
+  font-family: var(--font-serif);
+}
+
+.text-serif-big {
+  @apply text-style-big;
+  font-family: var(--font-serif);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-1);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-5);
+  border-radius: 50px;
+  border: transparent;
+}
+
+.nav-item {
+  cursor: pointer;
+  @apply text-c-1;
+  width: fit-content;
+  display: block;
+  text-decoration: none;
+  transition: all 400ms var(--cubic-bezier);
+}
+
+.nav-item::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: clamp(0.1rem, 0.2vh, 0.2rem);
+  @apply bg-c-1;
+}
+
+.nav-items:hover>.nav-item {
+  opacity: 0.3;
+}
+
+.nav-items:not(:hover)>.nav-item::after {
+  width: 0%;
+  transition: width 800ms var(--cubic-bezier);
+}
+
+.nav-item:not(:hover) {
+  transition: all 800ms ease;
+}
+
+.nav-items:hover>.nav-item:hover {
+  opacity: 1;
+  transition: all 800ms ease;
+}
+
+.nav-items:hover>.nav-item:hover::after {
+  width: 100%;
+  transition: all 800ms var(--cubic-bezier);
+}
+
+.nav-items:hover>.nav-item:not(:hover)::after {
+  width: 0%;
+  transition: all 800ms var(--cubic-bezier);
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  @apply text-c-1;
+  @apply bg-c-4;
+}
+
+::selection {
+  @apply text-c-1;
+  @apply bg-c-4;
+}
+
+.rotate-45 {
+  @apply rotate-[45deg];
+}
+
+.rotate-90 {
+  @apply rotate-[90deg];
+}
+
+.rotate-135 {
+  @apply rotate-[135deg];
+}
+
+.rotate-180 {
+  @apply rotate-[180deg];
+}
+
+.rotate-225 {
+  @apply rotate-[225deg];
+}
+
+.rotate-270 {
+  @apply rotate-[270deg];
+}
+
+.rotate-315 {
+  @apply rotate-[315deg];
+}
+
+.rotate-360 {
+  @apply rotate-[360deg];
+}
+
+.-rotate-45 {
+  @apply rotate-[-45deg];
+}
+
+.-rotate-90 {
+  @apply rotate-[-90deg];
+}
+
+.-rotate-135 {
+  @apply rotate-[-135deg];
+}
+
+.-rotate-180 {
+  @apply rotate-[-180deg];
+}
+
+.-rotate-225 {
+  @apply rotate-[-225deg];
+}
+
+.-rotate-270 {
+  @apply rotate-[-270deg];
+}
+
+.-rotate-315 {
+  @apply rotate-[-315deg];
+}
+
+.-rotate-360 {
+  @apply rotate-[-360deg];
 }
