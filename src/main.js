@@ -13,7 +13,7 @@ import { getGenerativeModel, getVertexAI } from 'firebase/vertexai'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyAVvrcZW1tz6QxpnJdj_GW5BQl9u4YyDC0',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: 'pleshassignment.firebaseapp.com',
   projectId: 'pleshassignment',
   storageBucket: 'pleshassignment.appspot.com',
