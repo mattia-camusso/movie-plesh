@@ -36,6 +36,16 @@ export const useMainStore = defineStore('reccomandation', () => {
     poster.value = recc
   }
 
+  const reset = () => {
+    title.value = ''
+    description.value = ''
+    runningTime.value = ''
+    cast.value = []
+    releaseYear.value = ''
+    titleUrl.value = ''
+    poster.value = ''
+  }
+
   return {
     addTitle,
     addCast,
@@ -43,6 +53,7 @@ export const useMainStore = defineStore('reccomandation', () => {
     addRunningTime,
     addReleaseYear,
     addPoster,
+    reset,
     title,
     description,
     cast,

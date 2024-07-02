@@ -1,25 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 import { fontFamily } from 'tailwindcss/defaultTheme'
-import plugin from 'tailwindcss/plugin'
-
 export default {
   content: [
-    './components/**/*.{js,vue,ts}',
-    './layouts/**/*.vue',
-    './pages/**/*.vue',
-    './plugins/**/*.{js,ts}',
-    './app.vue',
-    './error.vue'
+    './index.html',
+    './src/**/*.vue',
+    './src/*.vue',
+    './views/**/*.vue',
+    './components/**/*.vue'
   ],
   theme: {
     extend: {
       colors: {
         c: {
-          1: '#F1F2F6',
-          2: '#182825',
-          3: '#F5D3D3',
-          4: '#AF1B3F',
-          5: '#93C0A4'
+          1: '#f1faee',
+          2: '#0d1b2a',
+          3: '#14213d',
+          4: '#d90429'
         }
       },
       screens: {
@@ -64,14 +60,5 @@ export default {
       }
     }
   },
-  plugins: [
-    plugin(function ({ addBase, addUtilities }) {
-      addBase({})
-      addUtilities({
-        '.tap-highlight-color': {
-          '-webkit-tap-highlight-color': 'rgba(0, 0, 0, 0)'
-        }
-      })
-    })
-  ]
+  plugins: []
 }

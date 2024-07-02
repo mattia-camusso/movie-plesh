@@ -1,8 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import FeedView from '../views/FeedView.vue'
+import WhatToWatchComponent from '../components/WhatToWatchComponent.vue'
+import GenreComponent from '../components/GenreComponent.vue'
+import DecadeComponent from '../components/DecadeComponent.vue'
+import MoodComponent from '../components/MoodComponent.vue'
+import MPAAComponent from '../components/MPAAComponent.vue'
 import RegisterView from '../views/RegisterView.vue'
 import SignInView from '../views/SignInView.vue'
+import ResultView from '../views/ResultView.vue'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 const router = createRouter({
@@ -11,13 +17,35 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
+      meta: { requiresAuth: true },
       component: HomeView
     },
     {
       path: '/feed',
-      name: 'feed',
       component: FeedView,
-      meta: { requiresAuth: true }
+      meta: { requiresAuth: true },
+      children: [
+        {
+          path: 'watch',
+          component: WhatToWatchComponent
+        },
+        {
+          path: 'genre',
+          component: GenreComponent
+        },
+        {
+          path: 'decade',
+          component: DecadeComponent
+        },
+        {
+          path: 'mood',
+          component: MoodComponent
+        },
+        {
+          path: 'mpaa',
+          component: MPAAComponent
+        }
+      ]
     },
     {
       path: '/register',
@@ -30,12 +58,9 @@ const router = createRouter({
       component: SignInView
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      path: '/result',
+      name: 'result',
+      component: ResultView
     }
   ]
 })
@@ -58,8 +83,7 @@ router.beforeEach(async (to, from, next) => {
     if (await getCurrentUser()) {
       next()
     } else {
-      alert('You must be logged in to access this page.')
-      next('/')
+      next('/register')
     }
   } else {
     next()

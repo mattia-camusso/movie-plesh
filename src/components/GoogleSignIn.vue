@@ -1,8 +1,10 @@
 <template>
-  <button @click="signInWithGoogle">Accedi con Google</button>
+  <div class="nav-items">
+    <button class="nav-item text-style-2" @click="signInWithGoogle">Accedi con Google</button>
+  </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="js" setup>
 import { useRouter } from 'vue-router'
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { ref } from 'vue'

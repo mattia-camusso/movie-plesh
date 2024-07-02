@@ -2,53 +2,51 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useQuestionStore = defineStore('questions', () => {
-  const title = ref('')
-  const description = ref('')
-  const runningTime = ref('')
-  const cast = ref([])
-  const releaseYear = ref('')
-  const titleUrl = ref('')
-  const poster = ref('')
-  /*const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
-  } */
+  const whatToWatch = ref('')
+  const decade = ref('')
+  const genre = ref('')
+  const mood = ref('')
+  const mpaa = ref('')
 
-  const addTitle = (recc) => {
-    const pattern = /\([^)]*\)/g
-    const parsedTitle = recc.replace(pattern, '')
-    title.value = parsedTitle
-    titleUrl.value = parsedTitle.toLowerCase().replace(' ', '+')
+  const setWhatToWatch = (val) => {
+    whatToWatch.value = val
   }
-  const addDescription = (recc) => {
-    description.value = recc
+
+  const setDecade = (val) => {
+    decade.value = val
   }
-  const addRunningTime = (recc) => {
-    runningTime.value = recc
+
+  const setGenre = (val) => {
+    genre.value = val
   }
-  const addCast = (recc) => {
-    cast.value = recc
+
+  const setMood = (val) => {
+    mood.value = val
   }
-  const addReleaseYear = (recc) => {
-    releaseYear.value = recc
+
+  const setMPAA = (val) => {
+    mpaa.value = val
   }
-  const addPoster = (recc) => {
-    poster.value = recc
+
+  const reset = () => {
+    ;(whatToWatch.value = ''),
+      (decade.value = ''),
+      (genre.value = ''),
+      (mood.value = ''),
+      (mpaa.value = '')
   }
 
   return {
-    addTitle,
-    addCast,
-    addDescription,
-    addRunningTime,
-    addReleaseYear,
-    addPoster,
-    title,
-    description,
-    cast,
-    releaseYear,
-    runningTime,
-    titleUrl,
-    poster
+    whatToWatch,
+    decade,
+    genre,
+    mood,
+    mpaa,
+    setWhatToWatch,
+    setDecade,
+    setGenre,
+    setMood,
+    setMPAA,
+    reset
   }
 })

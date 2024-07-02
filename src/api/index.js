@@ -1,9 +1,22 @@
 import { model } from '@/main'
 import { useMainStore } from '@/stores/reccomandation'
 
-export const getReccomandation = async () => {
+export const getReccomandation = async (
+  whatToWatch,
+  decade,
+  genre,
+  mood,
+  mpaa,
+  movieToAvoid = ''
+) => {
+  let avoid = ''
+  if (movieToAvoid !== '') {
+    avoid = `. Don't reccomand this one ${movieToAvoid}`
+  }
   // Provide a prompt that contains text
-  const prompt = `Give me a movie to watch based on the following. I like this genre: Horror. I like this decade: '2010s. Current Mood Sad. MPAA Rating PG. Occasion Movie Date. Give me your response in a valid json string, with the following fields: title, description, cast, releaseYear, runningTime, trailerUrl`
+  const prompt = `Give me a ${whatToWatch} to watch based on the following. I like this genre: ${genre}. I like this decade: ${decade}. Current Mood ${mood}. MPAA Rating ${mpaa}${avoid}. Give me your response in a valid json string, with the following fields: title, description, cast, releaseYear, runningTime. Send a reccomandation even if it doesn't fit all the criteria perfectly`
+  console.log(prompt)
+  //const prompt2 = `Dammi un film da guardare basato su quanto segue. Mi piace questo genere: Horror. Mi piace questo decennio: gli anni 2010. Umore attuale Triste. Valutazione MPAA Rated R. Occasione, film da vedere con il partner. Dammi la tua risposta in una stringa json valida, con i seguenti campi: titolo, descrizione, cast, releaseYear, runningTime, trailerUrl`
 
   // To generate text output, call generateContent with the text input
   const result = await model.generateContent(prompt)
