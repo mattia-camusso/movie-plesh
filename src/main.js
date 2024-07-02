@@ -6,7 +6,7 @@ import router from './router'
 import './index.scss'
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
-import { getGenerativeModel, getVertexAI } from 'firebase/vertexai'
+import { getGenerativeModel, getVertexAI } from 'firebase/vertexai_preview'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
