@@ -38,7 +38,7 @@ export const getReccomandation = async (
 
 const getMoviePoster = async () => {
   const store = useMainStore()
-  const url = `http://www.omdbapi.com/?i=tt3896198&apikey=${import.meta.env.VITE_MOVIE_POSTER_TOKEN}&t=${store.titleUrl}&y=${store.releaseYear}`
+  const url = `https://www.omdbapi.com/?i=tt3896198&apikey=${import.meta.env.VITE_MOVIE_POSTER_TOKEN}&t=${store.titleUrl}&y=${store.releaseYear}`
   try {
     const response = await fetch(url)
     if (!response.ok) {
