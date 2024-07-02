@@ -1,6 +1,6 @@
 <template>
   <div
-    class="backdrop-blur-xl flex flex-col gap-8 items-center border-c-3 border-2 rounded-lg w-1/4 min-w-80 p-12"
+    class="backdrop-blur-xl flex flex-col gap-8 items-center border-c-3 border-2 rounded-lg w-1/4 min-w-80 mt-12 p-12"
   >
     <h1 class="text-style-1">Crea un Account</h1>
     <p>

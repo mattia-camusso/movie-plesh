@@ -5,7 +5,7 @@
       :question="currentQuestion.question"
       :options="currentQuestion.options"
     ></QuestionComponent> -->
-    <div v-if="router.currentRoute.value.fullPath === '/feed'">
+    <div class="mt-12" v-if="router.currentRoute.value.fullPath === '/feed'">
       <h1 class="text-style-1 text-pretty text-center">
         IL TUO NUOVO <span class="text-c-4">FILM PREFERITO</span> A PORTATA DI CLICK
       </h1>

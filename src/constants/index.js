@@ -139,8 +139,8 @@ export const moodQuestion = {
   question: 'Qual è il tuo mood attuale?',
   options: [
     {
-      text: 'Solitario',
-      value: 'Lonely',
+      text: 'Misterioso',
+      value: 'mysterious',
       img: '/lonely.jpg'
     },
     {

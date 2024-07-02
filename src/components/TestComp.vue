@@ -35,7 +35,7 @@
     </div>
     <div v-if="store.poster">
       <img
-        class="h-[35vh] mx-auto mt-20 md:mt-0 md:h-full"
+        class="h-[35vh] mx-auto max-w-none mt-20 md:mt-0 md:h-full"
         :src="store.poster"
         :alt="store.title"
       />
@@ -52,6 +52,7 @@ import LoaderComponent from '@/components/ui/LoaderComponent.vue'
 import { useMainStore } from '@/stores/reccomandation'
 import { useQuestionStore } from '@/stores/questions'
 import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 
 onMounted(() => {
   getReccomandation(
@@ -63,8 +64,14 @@ onMounted(() => {
   )
 })
 
+const router = useRouter()
 const store = useMainStore()
 const questions = useQuestionStore()
+
+const restart = () => {
+  store.reset()
+  router.push('/feed')
+}
 </script>
 
 <style></style>

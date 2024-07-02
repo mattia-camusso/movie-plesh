@@ -27,7 +27,8 @@ const handleSignOut = () => {
 
 <template>
   <div class="wrapper border-image md:p-8 p-3">
-    <header class="flex justify-between z-3">
+    <header class="flex justify-between items-center z-3">
+      <div class="w-[10%]"></div>
       <RouterLink to="/feed" class="md:flex-grow">
         <h1 class="text-serif text-style-big gradient-text text-center">MOVIEGRAM</h1>
       </RouterLink>

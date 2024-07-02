@@ -1,6 +1,6 @@
 <template>
   <div
-    class="backdrop-blur-xl flex flex-col gap-8 items-center border-c-3 border-2 rounded-lg min-w-80 w-[1/4] p-12"
+    class="backdrop-blur-xl flex flex-col gap-8 items-center border-c-3 border-2 rounded-lg min-w-80 w-1/4 mt-12 p-12"
   >
     <h1 class="text-style-1">Accedi</h1>
     <p>
